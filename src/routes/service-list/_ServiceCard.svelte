@@ -2,6 +2,11 @@
     import ServerIcon from "$components/hero-icons/ServerIcon.svelte";
     import UsersIcon from "$components/hero-icons/UsersIcon.svelte";
     import Label from "$components/Label.svelte";
+    import {
+        getColorByStringHash,
+        toLowSaturation,
+        getColorString,
+    } from "$helpers/colors";
 
     export let name: string;
     export let platform: string;
@@ -10,11 +15,16 @@
     export let maxServers: number = undefined;
     export let currentUsers: number = undefined;
     export let maxUsers: number = undefined;
+
+    const color = getColorByStringHash(platform);
+    const colorHigh = getColorString(color),
+        colorLow = getColorString(toLowSaturation(color));
 </script>
 
 <a
     href="/global/bukkit"
     class="outline-none focus:ring ring-yellow-500 ring-opacity-50 dark:ring-opacity-75 rounded-md bg-white dark:bg-gray-800 shadow hover:shadow-lg transition-all"
+    style="background-color:{colorLow};border-left:{colorHigh} 3px solid;border-radius:5px;"
 >
     <article>
         <div class="pt-6 px-6 flex items-center gap-1">
