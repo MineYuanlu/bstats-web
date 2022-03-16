@@ -33,7 +33,6 @@
             >
                 {name}
             </h2>
-            <Label class="!px-1.5 !py-0.5 !text-xs">{platform}</Label>
         </div>
         <span class="px-6 text-sm text-gray-600 dark:text-gray-400"
             >by {owner}</span
@@ -70,6 +69,13 @@
                         / {maxUsers?.toLocaleString("en-US") ?? "???"}
                     </span>
                 </div>
+            </div>
+        </div>
+        <div class="px-6 pb-4">
+            <div
+                class="inline-flex items-center text-gray-800 dark:text-gray-200"
+            >
+                <Label class="!px-1.5 !py-0.5 !text-xs">{platform}</Label>
             </div>
         </div>
     </article>

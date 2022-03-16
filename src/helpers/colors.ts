@@ -85,7 +85,7 @@ function colorHSL2RGB(hsl: Color): Color {
         s = hsl[1] / 100,
         l = hsl[2] / 100;
 
-    let val: number, i: number;
+    let val: number;
 
     if (s === 0) return (val = l * 255), [val, val, val];
 
@@ -93,7 +93,7 @@ function colorHSL2RGB(hsl: Color): Color {
     const t1 = 2 * l - t2;
 
     const rgb: Color = [0, 0, 0];
-    for (; i < 3; ) {
+    for (let i = 0; i < 3; ) {
         let t3 = h + (1 / 3) * -(i - 1);
         t3 < 0 ? t3++ : t3 > 1 && t3--;
         val =
